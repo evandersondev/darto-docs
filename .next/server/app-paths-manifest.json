@@ -1,0 +1,7 @@
+{
+  "/middleware/page": "app/middleware/page.js",
+  "/static-files/page": "app/static-files/page.js",
+  "/template-engine/page": "app/template-engine/page.js",
+  "/advanced-features/page": "app/advanced-features/page.js",
+  "/support/page": "app/support/page.js"
+}
