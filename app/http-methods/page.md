@@ -14,9 +14,7 @@ void main() {
     res.send('This is a GET request');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -30,12 +28,11 @@ void main() {
 
   app.post('/', (Request req, Response res) async {
     final data = await req.body;
+
     res.send('Received data: $data');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -50,12 +47,11 @@ void main() {
   app.put('/update/:id', (Request req, Response res) async {
     final id = req.params['id'];
     final data = await req.body;
+
     res.send('Updated data with ID $id: $data');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -69,12 +65,11 @@ void main() {
 
   app.delete('/delete/:id', (Request req, Response res) {
     final id = req.params['id'];
+
     res.send('Deleted data with ID $id');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -89,12 +84,11 @@ void main() {
   app.patch('/modify/:id', (Request req, Response res) async {
     final id = req.params['id'];
     final data = await req.body;
+
     res.send('Modified data with ID $id: $data');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -111,9 +105,7 @@ void main() {
     res.send('Allowed methods: GET, POST, PUT, DELETE, OPTIONS');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -130,10 +122,6 @@ void main() {
     res.end();
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
-
----

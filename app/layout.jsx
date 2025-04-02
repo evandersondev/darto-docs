@@ -1,6 +1,7 @@
+import Link from 'next/link'
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import 'nextra-theme-docs/style.css'
-import { Head } from 'nextra/components'
+import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
  
 export const metadata = {
@@ -8,14 +9,19 @@ export const metadata = {
   // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
 }
  
-// const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>
+const banner = <Banner storageKey="some-key">🍷 Dartonic 0.0.3 Query Builder</Banner>
 const navbar = (
   <Navbar
-    logo={<b>Darto</b>}
-    // ... Your additional navbar options
+    logo={
+      <Link href="/" style={{display: 'flex', alignItems: 'center', gap: 8}}>
+        <img src="https://raw.githubusercontent.com/evandersondev/darto/main/assets/logo.png" alt="Darto Logo" width="32px" />
+        <span style={{fontSize: 20, fontWeight: 700}}>Darto</span>
+      </Link>
+    }
+    projectLink='https://github.com/evandersondev/darto'
   />
 )
-const footer = <Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>
+const footer = <Footer>Made by evendersondev {new Date().getFullYear()} © Darto.</Footer>
  
 export default async function RootLayout({ children }) {
   return (
@@ -34,12 +40,14 @@ export default async function RootLayout({ children }) {
       </Head>
       <body>
         <Layout
-        //   banner={banner}
+          banner={banner}
           navbar={navbar}
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
           footer={footer}
-          // ... Your additional layout options
+          sidebar={{
+            toggleButton: false,
+          }}
         >
           {children}
         </Layout>

@@ -13,12 +13,11 @@ void main() {
   // Example route with parameters
   app.get('/user/:id', (Request req, Response res) {
     final id = req.params['id'];
+
     res.send('User ID: $id');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -32,12 +31,11 @@ void main() {
   app.get('/search', (Request req, Response res) {
     final name = req.query['name'];
     final age = req.query['age'];
+
     res.send('Name: $name, Age: $age');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -53,9 +51,7 @@ void main() {
     return 'Hello, World!';
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -88,36 +84,17 @@ void main() {
   final app = Darto();
 
   // Use the router
+  app.use(appRouter());
+
+  // If you want you can add a prefix in router
   app.use('/app', appRouter());
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
 In this example, the `appRouter` function creates a new `Router` instance and defines several routes. The router is then used in the main application with `app.use('/app', appRouter())`.
 
-## Example Routes 📡
-
-Here are some example routes to help you understand how to define different types of routes in Darto:
-
-### Route to Get User Information by ID
-
-```dart
-void main() {
-  final app = Darto();
-
-  app.get('/user/:id', (Request req, Response res) {
-    final id = req.params['id'];
-    res.send({'user': id});
-  });
-
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
-}
-```
 
 ### Route to Redirect to an External Site
 
@@ -129,9 +106,7 @@ void main() {
     res.redirect('http://example.com');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -143,11 +118,10 @@ void main() {
 
   app.post('/file', (Request req, Response res) async {
     final body = await req.body;
+
     res.send(body);
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```

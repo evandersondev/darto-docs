@@ -14,9 +14,7 @@ void main() {
     res.send('Hello, World!');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -32,9 +30,7 @@ void main() {
     res.json({'message': 'Hello, World!'});
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -50,9 +46,7 @@ void main() {
     res.end('Goodbye, World!');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -68,9 +62,7 @@ void main() {
     res.status(200).send('OK');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -86,9 +78,7 @@ void main() {
     res.redirect('https://example.com');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -104,9 +94,7 @@ void main() {
     res.download('path/to/file.txt', {'filename': 'custom-filename.txt'});
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -122,9 +110,7 @@ void main() {
     res.sendFile('path/to/file.txt');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -140,9 +126,7 @@ void main() {
     res.error('An error occurred.');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -159,9 +143,7 @@ void main() {
     res.send('Cookie set');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -178,9 +160,7 @@ void main() {
     res.send('Cookie cleared');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
@@ -193,15 +173,12 @@ void main() {
   final app = Darto();
 
   // Set the directory and view engine as shown in template engine documentation
+  // ...
 
   app.get('/render', (Request req, Response res) {
     res.render('template', {'data': 'Hello, World!'});
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
-
----

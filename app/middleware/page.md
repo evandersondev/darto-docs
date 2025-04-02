@@ -67,7 +67,7 @@ Error-handling middleware is defined by adding an extra parameter to the middlew
 void main() {
   final app = Darto();
 
-  app.use((err, Request req, Response res, Next next) {
+  app.use((Err err, Request req, Response res, Next next) {
     print('Error: $err');
     res.status(500).send('Internal Server Error');
   });
@@ -81,5 +81,3 @@ void main() {
   });
 }
 ```
-
----

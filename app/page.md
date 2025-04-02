@@ -1,11 +1,10 @@
 # Overview
 
 <p align="center">
-  <img src="./assets/logo.png" width="200px" align="center" alt="Darto logo" />
+  <img src="https://raw.githubusercontent.com/evandersondev/darto/main/assets/logo.png" width="200px" align="center" alt="Darto logo" />
   <h1 align="center">Darto</h1>
   <br>
   <p align="center">
-  <a href="https://github.com/evandersondev/darto">🐶 Darto Github</a>
   <br/>
     Darto is a microframework inspired by <a href="https://expressjs.com/">Express</a> for building web applications in Dart. It offers a simple API with familiar middleware patterns that make it easy to get started with web development!
   </p>
@@ -37,6 +36,3 @@ Darto is designed to simplify the process of building web applications in Dart b
 
 If you find Darto useful, please consider supporting its development 🌟[Buy Me a Coffee](https://buymeacoffee.com/evandersondev).🌟 Your support helps us improve the framework and make it even better!
 
----
-
-Made by evandersondev with ❤️ for Dart/Flutter developers! 🎯

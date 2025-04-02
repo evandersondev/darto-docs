@@ -11,15 +11,15 @@ void main() {
   // Serve static files from the "public" folder
   app.static('public');
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
 In this example, any files placed in the `public` directory can be accessed through the browser. For instance, if you have a file `index.html` in the `public` directory, you can access it via `http://localhost:3000/public/index.html`.
 
-## Sending Files as Response
+## Examples
+
+### Sending Files as Response
 
 You can also send files as a response to specific routes using the `sendFile` method. Here's an example:
 
@@ -31,15 +31,11 @@ void main() {
     res.sendFile('public/file.txt');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
 In this example, when a GET request is made to `/download`, the server will respond by sending the `file.txt` file located in the `public` directory.
-
-## Examples
 
 ### Serving an Image
 
@@ -51,27 +47,6 @@ void main() {
     res.sendFile('public/image.png');
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
-
-### Serving HTML Files
-
-```dart
-void main() {
-  final app = Darto();
-
-  // Serve static HTML files from the "public" directory
-  app.static('public');
-
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
-}
-```
-
-In this example, any HTML files placed in the `public` directory can be accessed directly through the browser.
-
----
