@@ -65,9 +65,15 @@ module.exports = {
                 ]
             },
             {
-                title: 'Main Features',
+                title: 'Databases',
                 children: [
-                    '/main-features.md'
+                    '/databases.md'
+                ]
+            },
+            {
+                title: 'Validations',
+                children: [
+                    '/validations.md'
                 ]
             },
             {

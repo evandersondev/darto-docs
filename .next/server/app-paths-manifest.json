@@ -1,6 +1,9 @@
 {
-  "/page": "app/page.js",
-  "/advanced-features/page": "app/advanced-features/page.js",
+  "/static-files/page": "app/static-files/page.js",
+  "/template-engine/page": "app/template-engine/page.js",
+  "/response-methods/page": "app/response-methods/page.js",
+  "/http-methods/page": "app/http-methods/page.js",
   "/databases/page": "app/databases/page.js",
+  "/advanced-features/page": "app/advanced-features/page.js",
   "/validations/page": "app/validations/page.js"
 }

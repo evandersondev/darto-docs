@@ -28,6 +28,7 @@ void main() {
   final app = Darto();
 
   // Example route with query parameters
+  // http://localhost:3000/search?name=John&age=30
   app.get('/search', (Request req, Response res) {
     final name = req.query['name'];
     final age = req.query['age'];
@@ -94,7 +95,6 @@ void main() {
 ```
 
 In this example, the `appRouter` function creates a new `Router` instance and defines several routes. The router is then used in the main application with `app.use('/app', appRouter())`.
-
 
 ### Route to Redirect to an External Site
 
