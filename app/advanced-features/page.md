@@ -2,7 +2,7 @@
 
 Darto provides several advanced features to help you build robust applications. Here are some of the key features:
 
-## File Uploads
+## File Upload
 
 Darto provides support for handling file uploads. Here's an example of how to handle file uploads:
 
@@ -20,13 +20,11 @@ void main() {
     }
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
-## Sending Emails
+## Send Email
 
 Darto provides support for sending emails using external email services. Here's an example using the `mailer` package:
 
@@ -37,30 +35,42 @@ import 'package:mailer/smtp_server.dart';
 
 void main() {
   final app = Darto();
+  final mailer = DartoMailer();
+
+  // Create a transporter instance
+  final transporter = mailer.createTransport(
+    host: 'sandbox.smtp.mailtrap.io',
+    port: 2525,
+    ssl: false,
+    auth: {
+      'username': 'your-username',
+      'password': 'your-password',
+    },
+  );
 
   app.post('/send-email', (Request req, Response res) async {
-    final smtpServer = gmail('your_email@gmail.com', 'your_password');
-    final message = Message()
-      ..from = Address('your_email@gmail.com', 'Your Name')
-      ..recipients.add('recipient@example.com')
-      ..subject = 'Test Email from Darto'
-      ..text = 'Hello, this is a test email sent from Darto!';
+    final success = await transporter.sendMail(
+      from: 'your-email@gmail.com',
+      to: 'destination@exemplo.com',
+      subject: 'Test email by Gmail',
+      html: '''
+        <h1>Welcome to Darto Mailer!</h1>
+        <p>This email was sended by Darto Mailer.</p>
+      ''',
+    );
 
-    try {
-      final sendReport = await send(message, smtpServer);
-      res.json({'status': 'Email sent', 'report': sendReport.toString()});
-    } catch (e) {
-      res.status(500).json({'error': e.toString()});
+    if (success) {
+      return res.json({'message': 'Email sent with sucesso!'});
+    } else {
+      return res.status(500).json({'error': 'Failure to sent email'});
     }
   });
 
-  app.listen(3000, () {
-    print('Server running on http://localhost:3000');
-  });
+  app.listen(3000);
 }
 ```
 
-## File Downloads
+## File Download
 
 Darto allows you to handle file downloads easily. Here's an example:
 
@@ -72,9 +82,79 @@ void main() {
     res.download('path/to/file.txt', {'filename': 'custom-filename.txt'});
   });
 
+  app.listen(3000);
+}
+```
+
+## WebSocket
+
+Darto integrates with WebSockets to facilitate real-time communication in your applications. With WebSocket support, you can easily create interactive features like live chats, notifications, or interactive dashboards. The framework provides a simple API to handle WebSocket events:
+
+```dart
+import 'package:darto/darto.dart';
+
+void main() {
+  final app = Darto();
+
+  // Initialize WebSocket server
+  final server = DartoWebsocket();
+
+  // Handle new WebSocket connections
+  server.on('connection', (DartoSocketChannel socket) {
+    socket.stream.listen((message) {
+      socket.sink.add('Echo: $message');
+    });
+  });
+
+  // Start the HTTP and WebSocket servers
   app.listen(3000, () {
-    print('Server running on http://localhost:3000');
+    server.listen('0.0.0.0', 3001);
+    print('HTTP server running on http://localhost:3000');
   });
 }
+```
+
+## Custom headers
+
+```dart
+import 'package:darto/darto.dart';
+
+void main() {
+  final app = Darto();
+
+  app.get('/users', (Request req, Response res) {
+    // Set a custom header
+    res.set('X-Custom-Header', 'CustomValue');
+
+    return res.send();
+  });
+}
+```
+## Timeout
+
+```dart
+import 'package:darto/darto.dart';
+
+void main() {
+  final app = Darto();
+
+  app.timeout(5000);
+
+  app.use((Err err, Request req, Response res, Next next) {
+    if (!res.finished) {
+      res.status(SERVICE_UNAVAILABLE).json({
+        'error': 'Request timed out or internal error occurred.',
+      });
+    }
+  });
+
+  app.get('/delay', (Request req, Response res) {
+    Future.delayed(Duration(milliseconds: 6000), () {
+      if (!req.timedOut) {
+        res.json({'message': 'Delayed response'});
+      }
+    });
+  });
+} 
 ```
 

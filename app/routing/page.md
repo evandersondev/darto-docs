@@ -117,7 +117,7 @@ void main() {
   final app = Darto();
 
   app.post('/file', (Request req, Response res) async {
-    final body = await req.body;
+    final body = await req.body; // use jsonDecode to received json
 
     res.send(body);
   });

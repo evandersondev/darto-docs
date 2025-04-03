@@ -8,5 +8,7 @@ export default {
     'response-methods': 'Response Methods',
     'http-methods': 'HTTP Methods',
     'advanced-features': 'Advanced Features',
+    'databases': 'Databases',
+    'validations': 'Validations',
     'support': 'Support',
 }

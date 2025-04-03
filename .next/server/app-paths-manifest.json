@@ -1,3 +1,6 @@
 {
-  "/getting-started/page": "app/getting-started/page.js"
+  "/page": "app/page.js",
+  "/advanced-features/page": "app/advanced-features/page.js",
+  "/databases/page": "app/databases/page.js",
+  "/validations/page": "app/validations/page.js"
 }
