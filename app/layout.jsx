@@ -1,4 +1,5 @@
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Link from 'next/link'
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import 'nextra-theme-docs/style.css'
@@ -47,6 +48,7 @@ export default async function RootLayout({ children, params }) {
         >
           {children}
         </Layout>
+        <SpeedInsights/>
       </body>
     </html>
   )

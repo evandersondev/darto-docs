@@ -1,9 +1,15 @@
 {
-  "/static-files/page": "app/static-files/page.js",
-  "/template-engine/page": "app/template-engine/page.js",
-  "/response-methods/page": "app/response-methods/page.js",
-  "/http-methods/page": "app/http-methods/page.js",
-  "/databases/page": "app/databases/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/advanced-features/page": "app/advanced-features/page.js",
+  "/getting-started/page": "app/getting-started/page.js",
+  "/databases/page": "app/databases/page.js",
+  "/http-methods/page": "app/http-methods/page.js",
+  "/middleware/page": "app/middleware/page.js",
+  "/page": "app/page.js",
+  "/response-methods/page": "app/response-methods/page.js",
+  "/static-files/page": "app/static-files/page.js",
+  "/routing/page": "app/routing/page.js",
+  "/support/page": "app/support/page.js",
+  "/template-engine/page": "app/template-engine/page.js",
   "/validations/page": "app/validations/page.js"
 }
