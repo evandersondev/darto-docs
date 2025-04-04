@@ -8,6 +8,7 @@ If you want data persistence, you can use the 🍷[Dartonic](https://pub.dev/pac
 
 ### Dartonic Example:
 ```dart
+
 final usersTable = sqliteTable('users', {
   'id': integer().primaryKey(autoIncrement: true),
   'name': text().notNull(),
@@ -19,6 +20,7 @@ final dartonic = Dartonic("sqlite:database/database.db", [usersTable]);
 final db = await dartonic.sync();
 
 final users = await db.select().from('users');
+
 ```
 
 ## Boing Data - Data Persistent API (DPA)
@@ -27,6 +29,7 @@ final users = await db.select().from('users');
 
 ### Boing Data DPA Example:
 ```dart
+
 @Entity()
 @Table(name: "users")
 @Data()

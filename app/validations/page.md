@@ -29,18 +29,17 @@ void main() {
   final app = Darto();
 
   app.post('/users', (Request req, Response res) async {
-    final userSchema = z.map({
+    final schema = z.map({
         'name': z.string().min(3).nullable(),
         'age': z.int().min(1).nullable(),
     });
 
     try {
-        final body = jsonDecode(await req.body);
-        final userData = schema.parse(body);
+        final data = await schema.parseAsync(req.body);
         
-        return res.json(userData);
+        return res.json(data);
     } catch (e) {
-        return res.status(406).send(userSchema.getErrors());
+        return res.status(406).send(schema.getErrors());
     }
   });
 
