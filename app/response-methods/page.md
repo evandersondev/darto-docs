@@ -182,3 +182,20 @@ void main() {
   app.listen(3000);
 }
 ```
+
+## `set`
+
+You can use this method to set a header customization or change a header type
+
+```dart
+void main() {
+  final app = Darto();
+
+  app.get('/html', (Request req, Response res) {
+    res.set('Content-Type', 'text/html');
+    res.send('<h1>Hello custom header</h1>');
+  });
+
+  app.listen(3000);
+}
+```
