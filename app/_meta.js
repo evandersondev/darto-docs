@@ -10,5 +10,6 @@ export default {
     'advanced-features': 'Advanced Features',
     'databases': 'Databases',
     'validations': 'Validations',
+    'swagger': 'Swagger UI',
     'support': 'Support',
 }
