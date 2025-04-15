@@ -11,5 +11,6 @@ export default {
     'databases': 'Databases',
     'validations': 'Validations',
     'swagger': 'Swagger UI',
+    'security': 'Security',
     'support': 'Support',
 }
