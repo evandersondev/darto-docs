@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/evandersondev/darto/main/assets/logo.png" width="200px" align="center" alt="Darto logo" />
-  <h1 align="center">Darto</h1>
+  <a href="https://pub.dev/packages/darto"><h4 align="center">Darto pub.dev</h4></a>
   <br>
   <p align="center">
   <br/>
@@ -35,4 +35,3 @@ Darto is designed to simplify the process of building web applications in Dart b
 ## Getting Involved
 
 If you find Darto useful, please consider supporting its development 🌟[Buy Me a Coffee](https://buymeacoffee.com/evandersondev).🌟 Your support helps us improve the framework and make it even better!
-

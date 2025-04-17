@@ -199,3 +199,73 @@ void main() {
   app.listen(3000);
 }
 ```
+
+## `type`
+
+Sets the Content-Type header based on a known MIME type or file extension.
+This method is a shorthand for set('Content-Type', value) and automatically maps file extensions like 'json', 'html', 'png' to their corresponding MIME types.
+
+```dart
+void main() {
+  final app = Darto();
+
+  app.get('/html', (Request req, Response res) {
+    res.type('html').send('<h1>Hello HTML</h1>');
+  });
+
+  app.get('/json', (Request req, Response res) {
+    res.type('json').send('{"message":"Hello JSON"}');
+  });
+
+  app.listen(3000);
+}
+```
+
+## `pipe`
+
+Pipes a stream (such as a file or another request) directly into the response.
+This is useful for streaming large files, proxies, or data chunks without loading them entirely into memory.
+
+```dart
+import 'dart:io';
+
+void main() {
+  final app = Darto();
+
+  app.get('/video', (Request req, Response res) {
+    final fileStream = File('video.mp4').openRead();
+    res.set('Content-Type', 'video/mp4');
+    res.pipe(fileStream);
+  });
+
+  app.listen(3000);
+}
+```
+
+## `Gzip Compression`
+
+Darto supports optional Gzip compression for responses like `sendFile()` and `json()` when the client supports it (`Accept-Encoding: gzip`).
+If gzip is enabled, Darto will compress the response on the fly to improve performance over the network — especially for large files or JSON data.
+You can enable or disable gzip at the framework or response level (depending on your config system).
+
+```dart
+void main() {
+  final app = Darto(gzip: true); // enables gzip globally
+
+  app.get('/data', (Request req, Response res) {
+    res.json({'message': 'This response may be gzipped'});
+  });
+
+  app.get('/file', (Request req, Response res) {
+    res.sendFile('static/large.txt'); // will be sent with gzip if supported
+  });
+
+  app.listen(3000);
+}
+```
+
+By default, Darto will:
+
+- Check if the client supports gzip via the Accept-Encoding header.
+- Compress responses only if gzip is enabled in the framework config.
+- Skip gzip for already compressed files (e.g., .zip, .gz, .png).

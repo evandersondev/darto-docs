@@ -5,6 +5,7 @@ export default {
     'middleware': 'Middlewares',
     'static-files': 'Static Files',
     'template-engine': 'Template Engine',
+    'request-methods': 'Request Methods',
     'response-methods': 'Response Methods',
     'http-methods': 'HTTP Methods',
     'advanced-features': 'Advanced Features',
