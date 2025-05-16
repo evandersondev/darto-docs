@@ -81,3 +81,16 @@ void main() {
   });
 }
 ```
+
+<br />
+<br />
+
+> **Note**: You can define a variable like a middleware and then use it in the route.
+
+```dart
+// Create a middleware function
+  Middleware logMiddleware = (Request req, Response res, Next next) {
+    print('Request Type: ${req.method}');
+    next();
+  };
+```
