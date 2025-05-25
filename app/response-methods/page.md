@@ -2,7 +2,9 @@
 
 Darto provides several methods to control the response sent to the client. Here are the available methods:
 
-## `send`
+<br />
+
+### `send`
 
 Sends a response with the specified data.
 
@@ -18,7 +20,9 @@ void main() {
 }
 ```
 
-## `json`
+<br />
+
+### `json`
 
 Sends a JSON response with the specified data.
 
@@ -34,7 +38,9 @@ void main() {
 }
 ```
 
-## `end`
+<br />
+
+### `end`
 
 Ends the response and sends it to the client.
 
@@ -50,7 +56,9 @@ void main() {
 }
 ```
 
-## `status`
+<br />
+
+### `status`
 
 Sets the HTTP status code for the response.
 
@@ -66,7 +74,9 @@ void main() {
 }
 ```
 
-## `redirect`
+<br />
+
+### `redirect`
 
 Redirects the client to a new URL.
 
@@ -82,7 +92,9 @@ void main() {
 }
 ```
 
-## `download`
+<br />
+
+### `download`
 
 Initiates a file download by specifying the file path and optional options.
 
@@ -98,7 +110,9 @@ void main() {
 }
 ```
 
-## `sendFile`
+<br />
+
+### `sendFile`
 
 Sends a file as a response.
 
@@ -114,7 +128,9 @@ void main() {
 }
 ```
 
-## `error`
+<br />
+
+### `error`
 
 Sends an error response with the specified error message.
 
@@ -130,7 +146,9 @@ void main() {
 }
 ```
 
-## `cookie`
+<br />
+
+### `cookie`
 
 Sets a cookie in the response.
 
@@ -147,7 +165,9 @@ void main() {
 }
 ```
 
-## `clearCookie`
+<br />
+
+### `clearCookie`
 
 Clears a cookie from the response.
 
@@ -164,7 +184,9 @@ void main() {
 }
 ```
 
-## `render`
+<br />
+
+### `render`
 
 Renders a template with the specified data and sends it as a response.
 
@@ -183,7 +205,9 @@ void main() {
 }
 ```
 
-## `set`
+<br />
+
+### `set`
 
 You can use this method to set a header customization or change a header type
 
@@ -200,7 +224,9 @@ void main() {
 }
 ```
 
-## `type`
+<br />
+
+### `type`
 
 Sets the Content-Type header based on a known MIME type or file extension.
 This method is a shorthand for set('Content-Type', value) and automatically maps file extensions like 'json', 'html', 'png' to their corresponding MIME types.
@@ -221,7 +247,9 @@ void main() {
 }
 ```
 
-## `pipe`
+<br />
+
+### `pipe`
 
 Pipes a stream (such as a file or another request) directly into the response.
 This is useful for streaming large files, proxies, or data chunks without loading them entirely into memory.
@@ -242,7 +270,9 @@ void main() {
 }
 ```
 
-## `Gzip Compression`
+<br />
+
+### `Gzip Compression`
 
 Darto supports optional Gzip compression for responses like `sendFile()` and `json()` when the client supports it (`Accept-Encoding: gzip`).
 If gzip is enabled, Darto will compress the response on the fly to improve performance over the network — especially for large files or JSON data.

@@ -2,7 +2,9 @@
 
 Darto supports server-side rendering using a template engine. By default, it integrates with the Mustache template engine. You can configure the engine globally in your application as shown below:
 
-## Configuration
+<br />
+
+### Configuration
 
 First, set the directory where your template files are located and specify the view engine extension:
 
@@ -24,7 +26,9 @@ void main() {
 }
 ```
 
-## Rendering Templates
+<br />
+
+### Rendering Templates
 
 To render a template, use the `render` method. Here's an example:
 

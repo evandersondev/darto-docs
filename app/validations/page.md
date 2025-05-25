@@ -2,6 +2,8 @@
 
 You can use outher validation package but we recommend to use a simple package, 🧩 [Zard](https://pub.dev/packages/zard) is a schema validation and transformation library for Dart, inspired by the popular Zod library for JavaScript. With Zard, you can define schemas to validate and transform data easily and intuitively.
 
+<br />
+
 ### Zard
 
 ```dart
@@ -19,6 +21,8 @@ final user = {
 
 final userData = schema.parse(user); // {name: John Doe, age: 30}
 ```
+
+<br />
 
 ### Zard + Darto
 
@@ -49,6 +53,8 @@ void main() {
   });
 }
 ```
+
+<br />
 
 ### (Extra Package) Zard Darto Middleware
 

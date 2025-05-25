@@ -1,6 +1,6 @@
 # Static Files
 
-## Serving Static Files
+### Serving Static Files
 
 To serve static files, you can use the `static` method. This allows you to serve files like HTML, CSS, JavaScript, images, and more from a specified directory. Here's an example:
 
@@ -16,6 +16,8 @@ void main() {
 ```
 
 In this example, any files placed in the `public` directory can be accessed through the browser. For instance, if you have a file `index.html` in the `public` directory, you can access it via `http://localhost:3000/public/index.html`.
+
+<br />
 
 ## Examples
 
@@ -36,6 +38,8 @@ void main() {
 ```
 
 In this example, when a GET request is made to `/download`, the server will respond by sending the `file.txt` file located in the `public` directory.
+
+<br />
 
 ### Serving an Image
 

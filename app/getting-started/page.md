@@ -1,6 +1,8 @@
 # Getting Started
 
-## Installation 📦
+<br />
+
+### Installation 📦
 
 To install Darto, run the following command:
 
@@ -23,7 +25,9 @@ Then, run the following command:
 flutter pub get
 ```
 
-## Basic Usage 🚀
+<br />
+
+### Basic Usage 🚀
 
 Here is a basic example of how to use Darto to create a simple web application:
 

@@ -2,7 +2,9 @@
 
 Darto supports different types of middleware to handle various tasks throughout the request-response lifecycle.
 
-## Global Middleware
+<br />
+
+### Global Middleware
 
 Global middlewares are applied to all incoming requests. You can register a global middleware using the `use` method.
 
@@ -22,7 +24,9 @@ void main() {
 }
 ```
 
-## Route-Specific Middleware
+<br />
+
+### Route-Specific Middleware
 
 Route-specific middlewares are applied to specific routes. You can pass a middleware as an optional parameter when defining a route.
 
@@ -59,7 +63,9 @@ void main() {
 }
 ```
 
-## Error Handling Middleware
+<br />
+
+### Error Handling Middleware
 
 Error-handling middleware is defined by adding an extra parameter to the middleware function to capture errors. Here's an example:
 
@@ -83,7 +89,6 @@ void main() {
 ```
 
 <br />
-<br />
 
 > **Note**: You can define a variable like a middleware and then use it in the route.
 
@@ -93,4 +98,13 @@ void main() {
     print('Request Type: ${req.method}');
     next();
   };
+```
+
+or typed with a `Hanlder` type to define a return type.
+
+```dart
+Hanlder loggerMiddleware(Request req, Response res, Next next) {
+  req.log.info('Request received');
+  next();
+}
 ```

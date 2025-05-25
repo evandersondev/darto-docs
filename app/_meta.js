@@ -8,10 +8,12 @@ export default {
     'request-methods': 'Request Methods',
     'response-methods': 'Response Methods',
     'http-methods': 'HTTP Methods',
+    'hooks': 'Hooks',
     'advanced-features': 'Advanced Features',
     'databases': 'Databases',
     'validations': 'Validations',
     'swagger': 'Swagger UI',
     'security': 'Security',
+    'logger': 'Logger',
     'support': 'Support',
 }

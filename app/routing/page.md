@@ -1,8 +1,12 @@
 # Routing
 
-## Route Parameters and Query Parameters 📝
+<br />
+
+### Route Parameters and Query Parameters 📝
 
 You can define routes with dynamic parameters and query parameters to create flexible and powerful APIs. Here are some examples:
+
+<br />
 
 ### Route Parameters
 
@@ -20,6 +24,8 @@ void main() {
   app.listen(3000);
 }
 ```
+
+<br />
 
 ### Query Parameters
 
@@ -40,7 +46,9 @@ void main() {
 }
 ```
 
-## Returning Implicit Responses
+<br />
+
+### Returning Implicit Responses
 
 In Darto, you can return implicit responses directly from the route handler. Here's an example:
 
@@ -56,7 +64,9 @@ void main() {
 }
 ```
 
-## Using the Router Class
+<br />
+
+### Using the Router Class
 
 The `Router` class allows you to create modular route handlers. This can help you organize your routes better. Here's an example:
 
@@ -96,6 +106,8 @@ void main() {
 
 In this example, the `appRouter` function creates a new `Router` instance and defines several routes. The router is then used in the main application with `app.use('/app', appRouter())`.
 
+<br />
+
 ### Route to Redirect to an External Site
 
 ```dart
@@ -109,6 +121,8 @@ void main() {
   app.listen(3000);
 }
 ```
+
+<br />
 
 ### Route to Get the Request Body
 

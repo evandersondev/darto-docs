@@ -2,27 +2,37 @@
 
 The Request class provides a rich interface for accessing and manipulating information from the HTTP request received in Darto. All available properties and methods are listed below:
 
-## `uri`
+<br />
+
+### `uri`
 
 - Type: `Uri`
 - Description: Returns the complete URI object of the request.
 
-## `method`
+<br />
+
+### `method`
 
 - Type: `String`
 - Description: Returns the HTTP method of the request (e.g. GET, POST, etc.).
 
-## `query`
+<br />
+
+### `query`
 
 - Type: `Map<String, String>`
 - Description: Returns the query parameters of the URL as a map.
 
-## `params`
+<br />
+
+### `params`
 
 - Type: `Map<String, String>`
 - Description: Dynamic parameters defined in the routes (e.g. /users/:id).
 
-# `body`
+<br />
+
+### `body`
 
 - Type: `Future<dynamic>`
 - Description: Returns the body of the request already processed. Supports:
@@ -30,89 +40,121 @@ The Request class provides a rich interface for accessing and manipulating infor
 - `application/x-www-form-urlencoded`: returns a Map.
 - `text/plain or others`: returns a String.
 
-## `cookies`
+<br />
+
+### `cookies`
 
 - Type: `Map<String, String>`
 - Description: Returns the request cookies as a map.
 
-## `headers`
+<br />
+
+### `headers`
 
 - Type: `DartoHeader`
 - Description: Interface for reading the request headers.
 
-## `baseUrl`
+<br />
+
+### `baseUrl`
 
 - Type: `String`
 - Description: Returns the base path of the application. (Currently returns `/` by default).
 
-## `host`
+<br />
+
+### `host`
 
 - Type: `String`
 - Description: Request host, extracted from the `Host` header.
 
-## `hostname`
+<br />
+
+### `hostname`
 
 - Type: `String`
 - Description: Only the hostname, without the port (e.g. `localhost`).
 
-## `originalUrl`
+<br />
+
+### `originalUrl`
 
 - Type: `String`
 - Description: Original full URL of the request.
 
-## `path`
+<br />
+
+### `path`
 
 - Type: `String`
 - Description: Path of the request (e.g. `/api/users`).
 
-## `ip`
+<br />
+
+### `ip`
 
 - Type: `String`
 - Description: Remote IP of the request.
 
-## `ips`
+<br />
+
+### `ips`
 
 - Type: `List<String>`
 - Description: List of IPs extracted from the `x-forwarded-for` header, or just the remote IP if there is no proxy.
 
-## `protocol`
+<br />
+
+### `protocol`
 
 - Type: `String`
 - Description: Protocol used in the request (`http` or `https`).
 
-## `file`
+<br />
+
+### `file`
 
 - Type: `Map<String, dynamic>?`
 - Description: Information about uploaded files (used in multipart/form-data uploads).
 
-## `timeout`
+<br />
+
+### `timeout`
 
 - Type: `int?`
 - Description: Timeout in milliseconds defined by middlewares.
 
-## `timedOut`
+<br />
+
+### `timedOut`
 
 - Type: `bool`
 - Description: Defines whether the request was terminated by timeout.
 
-## `context`
+<br />
+
+### `context`
 
 - Type: `Map<String, dynamic>`
 - Description: Context shared between middlewares and routes. Similar to `res.locals`.
 
-## `session`
+<br />
+
+### `session`
 
 - Type: `Map<String, dynamic>`
 - Description: Persistent session per request. Can be used by authentication middlewares or temporary storage.
 
-## `onResponseFinished`
+<br />
+
+### `onResponseFinished`
 
 - Type: `void Function()?`
 - Description: Callback executed when the response is finished.
 
-🔧 Methods
+<br />
 
-## `cast<T>()`
+### `cast<T>()`
 
 - Returns: Stream<List<int>>
 - Description: Converts the request to a stream with a specific type. Useful for raw data manipulation or streaming.

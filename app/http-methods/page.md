@@ -2,7 +2,9 @@
 
 Darto supports various HTTP methods to handle different types of requests. Here are the supported methods and examples of how to use them:
 
-## GET
+<br />
+
+### `GET`
 
 The GET method is used to retrieve data from the server.
 
@@ -18,7 +20,9 @@ void main() {
 }
 ```
 
-## POST
+<br />
+
+### `POST`
 
 The POST method is used to send data to the server.
 
@@ -36,7 +40,9 @@ void main() {
 }
 ```
 
-## PUT
+<br />
+
+### `PUT`
 
 The PUT method is used to update existing data on the server.
 
@@ -55,7 +61,9 @@ void main() {
 }
 ```
 
-## DELETE
+<br />
+
+### `DELETE`
 
 The DELETE method is used to delete data from the server.
 
@@ -73,7 +81,9 @@ void main() {
 }
 ```
 
-## PATCH
+<br />
+
+### `PATCH`
 
 The PATCH method is used to apply partial modifications to data on the server.
 
@@ -92,7 +102,9 @@ void main() {
 }
 ```
 
-## OPTIONS
+<br />
+
+### `OPTIONS`
 
 The OPTIONS method is used to describe the communication options for the target resource.
 
@@ -109,7 +121,9 @@ void main() {
 }
 ```
 
-## HEAD
+<br />
+
+### `HEAD`
 
 The HEAD method is used to retrieve the headers for a specific resource.
 

@@ -2,15 +2,17 @@
 
 The `darto_security` package provides a set of plug-and-play middlewares inspired by [Helmet.js](https://helmetjs.github.io/) to improve the security of your Darto application. These middlewares help protect your API against common threats like XSS, CSRF, request spamming, and more.
 
-## Installing
+<br />
+
+### Installing
 
 ```bash
 dart pub add darto_security
 ```
 
----
+<br />
 
-## Usage
+### Usage
 
 To use all security features with default settings:
 
@@ -33,9 +35,9 @@ void main() {
 }
 ```
 
----
+<br />
 
-## Available Middleware Flags
+### Available Middleware Flags
 
 You can selectively enable or disable each middleware by passing its respective flag:
 
@@ -57,9 +59,9 @@ You can selectively enable or disable each middleware by passing its respective 
 | Generic Sec Headers     | `securityHeaders`       | `true`  | Adds common security headers.                        |
 | XSS Protection          | `xssProtection`         | `true`  | Enables XSS filter in browsers.                      |
 
----
+<br />
 
-## Custom Parameters
+### Custom Parameters
 
 Some middlewares accept custom parameters:
 
@@ -87,9 +89,9 @@ dartoSecurity(
 
 > ⚠️ Middlewares like `blockUserAgents` and `ipBlock` require their respective lists to be non-empty to take effect.
 
----
+<br />
 
-## Disable Middleware
+### Disable Middleware
 
 To disable a specific middleware, set its flag to `false`:
 
@@ -101,9 +103,9 @@ dartoSecurity(
 );
 ```
 
----
+<br />
 
-## Full Example
+### Full Example
 
 ```dart
 import 'package:darto/darto.dart';

@@ -2,7 +2,9 @@
 
 Darto provides several advanced features to help you build robust applications. Here are some of the key features:
 
-## File Upload
+</br>
+
+### File Upload
 
 Darto provides support for handling file uploads. Here's an example of how to handle file uploads:
 
@@ -24,7 +26,9 @@ void main() {
 }
 ```
 
-## Send Email
+<br />
+
+### Send Email
 
 Darto provides support for sending emails using external email services. Here's an example using the `mailer` package:
 
@@ -70,7 +74,9 @@ void main() {
 }
 ```
 
-## File Download
+<br />
+
+### File Download
 
 Darto allows you to handle file downloads easily. Here's an example:
 
@@ -86,7 +92,9 @@ void main() {
 }
 ```
 
-## WebSocket
+<br />
+
+### WebSocket
 
 Darto integrates with WebSockets to facilitate real-time communication in your applications. With WebSocket support, you can easily create interactive features like live chats, notifications, or interactive dashboards. The framework provides a simple API to handle WebSocket events:
 
@@ -114,7 +122,9 @@ void main() {
 }
 ```
 
-## Custom headers
+<br />
+
+### Custom headers
 
 ```dart
 import 'package:darto/darto.dart';
@@ -130,7 +140,10 @@ void main() {
   });
 }
 ```
-## Timeout
+
+<br />
+
+### Timeout
 
 ```dart
 import 'package:darto/darto.dart';
@@ -155,6 +168,5 @@ void main() {
       }
     });
   });
-} 
+}
 ```
-

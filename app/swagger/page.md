@@ -2,6 +2,8 @@
 
 The [Swagger UI Darto](https://pub.dev/packages/swagger_ui_darto) is a plugin developed exclusively for the Darto framework. It allows you to easily integrate a beautiful Swagger UI into your Darto application, making it simple to visualize your API documentation. This plugin is intended for use with Darto only.
 
+<br />
+
 ### Example Usage
 
 ```dart
