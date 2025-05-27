@@ -8,6 +8,8 @@ Darto supports different types of middleware to handle various tasks throughout 
 
 Global middlewares are applied to all incoming requests. You can register a global middleware using the `use` method.
 
+> **Note:** Next type can be receive a Exception parameter optional like this:<br/>`void Function([Exception error])`.
+
 ```dart
 void main() {
   final app = Darto();

@@ -1,6 +1,7 @@
 export default {
     index: 'Overview',
     'getting-started': 'Getting Started',
+    'application': 'Application',
     'routing': 'Routing',
     'middleware': 'Middlewares',
     'static-files': 'Static Files',

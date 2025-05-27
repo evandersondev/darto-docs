@@ -8,6 +8,8 @@ Darto supports server-side rendering using a template engine. By default, it int
 
 First, set the directory where your template files are located and specify the view engine extension:
 
+> **Note:** Short syntax configuration supported in Darto with one line: <br/> `app.engine('mustache', join(Directory.current.path, 'lib', 'pages'));`
+
 ```dart
 import 'dart:io';
 import 'package:path/path.dart';

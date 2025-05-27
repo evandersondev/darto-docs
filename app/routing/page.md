@@ -139,3 +139,27 @@ void main() {
   app.listen(3000);
 }
 ```
+
+### Routes in chained
+
+Inspired by new version of express.js, you can chain routes. define route path, then define methods with their handlers. Syntax must be like this: `router.route(path).get(handler);`
+
+> **Note:** Type handler must be `Function(Request req, Response res, Next next)`
+
+```dart
+router
+      .route('/new')
+      .all((req, res, next) {
+        req.log.debug('middleware for all methods');
+        next();
+      })
+      .get((req, res, next) {
+        res.send('New route');
+      })
+      .post((req, res, next) {
+        next(Exception('Not implemented'));
+      })
+      .put((req, res, next) {
+        next(Exception('Not implemented'));
+      });
+```
