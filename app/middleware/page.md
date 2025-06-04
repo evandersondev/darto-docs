@@ -105,7 +105,7 @@ void main() {
 or typed with a `Hanlder` type to define a return type.
 
 ```dart
-Hanlder loggerMiddleware(Request req, Response res, Next next) {
+Handler loggerMiddleware(Request req, Response res, Next next) {
   req.log.info('Request received');
   next();
 }

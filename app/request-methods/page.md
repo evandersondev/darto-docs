@@ -158,3 +158,41 @@ The Request class provides a rich interface for accessing and manipulating infor
 
 - Returns: Stream<List<int>>
 - Description: Converts the request to a stream with a specific type. Useful for raw data manipulation or streaming.
+
+<br />
+
+### `bodyParse<T>(T Function(dynamic) parser)`
+
+- Returns: Future<T>
+- Description: Converts the request body to a specific type using a parser function.
+
+example:
+
+```dart
+app.post('/parsed', (Request req, Response res) async {
+    final tweet = await req.bodyParse((body) => Tweet.fromMap(body));
+
+    res.send(tweet.text);
+  });
+```
+
+<br />
+
+### `blob()`
+
+- Returns: Future<Uint8List>
+- Description: Returns the request body as a `Uint8List`.
+
+<br />
+
+### `arrayBuffer()`
+
+- Returns: Future<ByteBuffer>
+- Description: Returns the request body as a `ByteBuffer`.
+
+<br />
+
+### `formData()`
+
+- Returns: formData
+- Description: Get the form data from the request.

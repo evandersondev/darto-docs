@@ -16,9 +16,69 @@ void main() {
 
   // Example route with parameters
   app.get('/user/:id', (Request req, Response res) {
-    final id = req.params['id'];
+    final id = req.param['id'];
 
     res.send('User ID: $id');
+  });
+
+  app.listen(3000);
+}
+```
+
+<br />
+
+### Optional Parameters
+
+```dart
+void main() {
+  final app = Darto();
+
+  // Example optional params
+  app.get('/author/:name?', (Request req, Response res) {
+    final id = req.param['name'] ?? 'Unknown';
+
+    res.send('User ID: $id');
+  });
+
+  app.listen(3000);
+}
+```
+
+<br />
+
+### All parameters in order of definition
+
+```dart
+void main() {
+  final app = Darto();
+
+  // Example optional params
+  app.get('/author/:name?/post/:id', (Request req, Response res) {
+    // You can destructure the parameters in order of definition
+    final [name, id] = req.params();
+
+    // When you use optional params before required params, you must pass a default value in url
+    // http://localhost:3000/author/John/post/123
+    // http://localhost:3000/author/null/post/123
+    res.send('Hello, $name -  $id!');
+  });
+
+  app.listen(3000);
+}
+```
+
+<br />
+
+### Wildcard Parameters
+
+```dart
+void main() {
+  final app = Darto();
+
+  app.get('/author/*', (Request req, Response res) {
+    // You can access all routes with wildcard if start with /author/
+    // if necessary you can add a extra logic to check if the route is valid
+    res.send('Hello World!');
   });
 
   app.listen(3000);
@@ -85,7 +145,7 @@ Router appRouter() {
   });
 
   router.get('/events/:id/attendees', (Request req, Response res) {
-    return res.send('Attendees for event ${req.params['id']}');
+    return res.send('Attendees for event ${req.param['id']}');
   });
 
   return router;
@@ -162,4 +222,29 @@ router
       .put((req, res, next) {
         next(Exception('Not implemented'));
       });
+```
+
+<br />
+
+### Routes with a function receiving the instance of the Darto class or Router class.
+
+```dart
+void routesWithDarto(Darto app) {
+  app.get('/hello1', (req, res) {
+    res.send('With Darto');
+  });
+}
+
+void routesWithRouter(Router router) {
+  router.get('/hello2', (req, res) {
+    res.send('With Router');
+  });
+}
+
+void main() {
+  final app = Darto();
+
+  app.use(routesWithDarto);
+  app.use('/api', routesWithRouter);
+}
 ```
