@@ -190,3 +190,79 @@ void main() {
     app.engine('mustache', join(Directory.current.path, 'lib', 'pages'));
 }
 ```
+
+<br />
+
+### `all`
+
+The ALL method is used to handle all HTTP methods.
+
+```dart
+void main() {
+  final app = Darto();
+
+  app.all('/all', (req, res) {
+    // You can access with  all methods [GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD]
+    res.json({'message': 'This route should handle all HTTP methods'});
+  });
+
+  app.listen(3000);
+}
+```
+
+<br />
+
+### `param`
+
+The PARAM method is used to define custom parameters for routes. You can capture and use custom parameters for all routes to receive the same param name.
+
+```dart
+void main() {
+  final app = Darto();
+
+  app.param('id', (req, res, next, id) {
+    print('Custom param middleware for id: $id from app');
+    next();
+  });
+
+  app.listen(3000);
+}
+```
+
+### `useCors`
+
+To enable CORS (Cross-Origin Resource Sharing), you can use `useCors` helper. Here's an example:
+
+```dart
+void main() {
+  final app = Darto();
+
+  app.useCors(
+    origin: [
+        'https://example.com',
+        'https://another-domain.org'
+      ]
+    );
+
+  // Allow specific methods and headers
+  app.useCors(
+    methods: ['GET', 'POST'],
+    headers: ['Content-Type', 'Authorization'],
+  );
+}
+```
+
+### `baseURL`
+
+Set a base URL for all routes.
+
+```dart
+void main() {
+    final app = Darto().basePath('/api/v1');
+
+    // Access: http://localhost:3000/api/v1/messages
+    app.get('/messages', (Request req, Response res) {
+        res.json({'message': 'This is a GET request'});
+    });
+}
+```
