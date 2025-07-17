@@ -8,14 +8,14 @@ Darto supports different types of middleware to handle various tasks throughout 
 
 Global middlewares are applied to all incoming requests. You can register a global middleware using the `use` method.
 
-> **Note:** Next type can be receive a Exception parameter optional like this:<br/>`void Function([Exception error])`.
+> **Note:** NextFunction type can be receive a Exception parameter optional like this:<br/>`void Function([Exception error])`.
 
 ```dart
 void main() {
   final app = Darto();
 
   // Global middleware to log incoming requests
-  app.use((Request req, Response res, Next next) {
+  app.use((Request req, Response res, NextFunction next) {
     print('📝 Request: ${req.method} ${req.originalUrl}');
     next();
   });
@@ -37,7 +37,7 @@ void main() {
   final app = Darto();
 
   // Middleware specific to a route
-  app.use('/task/:id', (Request req, Response res, Next next) {
+  app.use('/task/:id', (Request req, Response res, NextFunction next) {
     print('Request Type: ${req.method}');
     next();
   });
@@ -48,7 +48,7 @@ void main() {
   });
 
   // Create a middleware function
-  logMiddleware(Request req, Response res, Next next) {
+  logMiddleware(Request req, Response res, NextFunction next) {
     print('Request Type: ${req.method}');
     next();
   };
@@ -67,6 +67,37 @@ void main() {
 
 <br />
 
+### Middleware for router context
+
+Middleware can be applied to a router context, allowing you to apply middleware to all routes within that router. Here's an example:
+
+```dart
+Router blogRouter() {
+  final router = Router();
+
+  // Can be accessed without authentication
+  router.get('/public', (Request req, Response res) {
+    res.send('Public Blog');
+  });
+
+  // Apply authentication middleware to all routes above this line
+  app.use(authMiddleware);
+
+  // Can be only accessed with authentication
+  router.get('/', (Request req, Response res) {
+    res.send('Blog Homepage');
+  });
+
+  router.get('/:id', (Request req, Response res) {
+    final id = req.params['id'];
+
+    res.send({'blog': id});
+  });
+}
+```
+
+<br />
+
 ### Error Handling Middleware
 
 Error-handling middleware is defined by adding an extra parameter to the middleware function to capture errors. Here's an example:
@@ -75,7 +106,7 @@ Error-handling middleware is defined by adding an extra parameter to the middlew
 void main() {
   final app = Darto();
 
-  app.use((Err err, Request req, Response res, Next next) {
+  app.use((Err err, Request req, Response res, NextFunction next) {
     print('Error: $err');
     res.status(500).send('Internal Server Error');
   });
@@ -96,7 +127,7 @@ void main() {
 
 ```dart
 // Create a middleware function
-  Middleware logMiddleware = (Request req, Response res, Next next) {
+  Middleware logMiddleware = (Request req, Response res, NextFunction next) {
     print('Request Type: ${req.method}');
     next();
   };
@@ -105,7 +136,7 @@ void main() {
 or typed with a `Hanlder` type to define a return type.
 
 ```dart
-Handler loggerMiddleware(Request req, Response res, Next next) {
+Handler loggerMiddleware(Request req, Response res, NextFunction next) {
   req.log.info('Request received');
   next();
 }

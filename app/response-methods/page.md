@@ -344,7 +344,7 @@ void main() {
 
   app.engine('mustache', join(Directory.current.path, 'lib', 'pages'));
 
-  app.use((Request req, Response res, Next next) {
+  app.use((Request req, Response res, NextFunction next) {
     res.setRender((content) {
       return res.html('''
         <html>

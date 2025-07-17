@@ -29,7 +29,7 @@ import 'package:darto/darto.dart';
 void main() {
     final app = Darto();
 
-    app.use((Request req, Response res, Next next) {
+    app.use((Request req, Response res, NextFunction next) {
         print('📝 Request: ${req.method} ${req.originalUrl}')
         next();
     });

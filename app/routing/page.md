@@ -204,7 +204,7 @@ void main() {
 
 Inspired by new version of express.js, you can chain routes. define route path, then define methods with their handlers. Syntax must be like this: `router.route(path).get(handler);`
 
-> **Note:** Type handler must be `Function(Request req, Response res, Next next)`
+> **Note:** Type handler must be `Function(Request req, Response res, NextFunction next)`
 
 ```dart
 router
