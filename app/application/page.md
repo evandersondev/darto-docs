@@ -266,3 +266,16 @@ void main() {
     });
 }
 ```
+
+### `useWebSocket`
+
+For active websocket in the same server route.
+
+```dart
+void main() {
+    final app = Darto();
+
+    final ws = WebSocketServer();
+    app.useWebSocket(ws);
+}
+```

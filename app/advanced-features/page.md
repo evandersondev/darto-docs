@@ -105,18 +105,26 @@ void main() {
   final app = Darto();
 
   // Initialize WebSocket server
-  final server = DartoWebsocket();
+  final ws = WebsocketServer();
+  app.useWebSocket(ws);
 
   // Handle new WebSocket connections
-  server.on('connection', (DartoSocketChannel socket) {
-    socket.stream.listen((message) {
-      socket.sink.add('Echo: $message');
+  server.on('connection', (socket) {
+    // Send event for client connected
+    socket.emit('welcomeMessage', 'Echo: $message');
+
+    // Send event for all clients connected
+    socket.broadcast.emit('welcomeMessage', 'Echo: $message');
+
+    // Listening custom events
+    socket.on('receivedMessage' (data) {
+      socket.broadcast.emit('sendMessage', data)
     });
   });
 
+
   // Start the HTTP and WebSocket servers
   app.listen(3000, () {
-    server.listen('0.0.0.0', 3001);
     print('HTTP server running on http://localhost:3000');
   });
 }

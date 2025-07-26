@@ -1,6 +1,6 @@
 # Security
 
-The `darto_security` package provides a set of plug-and-play middlewares inspired by [Helmet.js](https://helmetjs.github.io/) to improve the security of your Darto application. These middlewares help protect your API against common threats like XSS, CSRF, request spamming, and more.
+The [darto_security](https://pub.dev/packages/darto_security) package provides a set of plug-and-play middlewares inspired by [Helmet.js](https://helmetjs.github.io/) to improve the security of your Darto application. These middlewares help protect your API against common threats like XSS, CSRF, request spamming, and more.
 
 <br />
 

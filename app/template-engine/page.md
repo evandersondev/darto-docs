@@ -8,7 +8,7 @@ Darto supports server-side rendering using a template engine. By default, it int
 
 First, set the directory where your template files are located and specify the view engine extension:
 
-> **Note:** Short syntax configuration supported in Darto with one line: <br/> `app.engine('mustache', join(Directory.current.path, 'lib', 'pages'));`
+> **Note:** Short syntax configuration supported in Darto with one line: <br/> `app.engine('views', join(Directory.current.path, 'lib', 'pages'));`
 
 ```dart
 import 'dart:io';
@@ -21,8 +21,8 @@ void main() {
   // Set the directory where your template files are located
   app.set('views', join(Directory.current.path, 'lib', 'pages'));
 
-  // Specify the view engine extension (e.g., "mustache")
-  app.set('view engine', 'mustache');
+  // Specify the view engine extension ("html")
+  app.set('view engine', 'html');
 
   app.listen(3000);
 }
@@ -39,7 +39,7 @@ void main() {
   final app = Darto();
 
   app.set('views', join(Directory.current.path, 'lib', 'pages'));
-  app.set('view engine', 'mustache');
+  app.set('view engine', 'html');
 
   // Define a route to render a template (without the extension)
   app.get('/', (Request req, Response res) {
@@ -54,7 +54,7 @@ void main() {
 }
 ```
 
-Create your template file at `lib/pages/index.mustache`:
+Create your template file at `lib/pages/index.html`, darto use mustache template engine:
 
 ```html
 <!DOCTYPE html>
